@@ -1,4 +1,4 @@
-import pytest
+import pytest, time
 import source.my_functions as my_functions
 
 def test_add():
@@ -17,3 +17,9 @@ def test_divide():
 def test_divide_by_zero():
     with pytest.raises(ValueError):
         result = my_functions.divide(10, 0)
+
+@pytest.mark.slow
+def test_very_slow():
+    time.sleep(10)
+    result = my_functions.divide(10, 5)
+    assert result == 2
