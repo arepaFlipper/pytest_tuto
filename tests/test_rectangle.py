@@ -10,3 +10,11 @@ def test_area(my_rectangle):
 
 def test_perimeter(my_rectangle):
     assert my_rectangle.perimeter() == (10*2) + (20*2)
+
+
+@pytest.fixture
+def weird_rectangle():
+    return shapes.Rectangle(5, 6)
+
+def test_not_eaqual(my_rectangle, weird_rectangle):
+    assert my_rectangle != weird_rectangle
